@@ -6,7 +6,7 @@ Yoklama-Devamsizlik Otomasyon Sistemi
 
 -1.Abdulrahman Khalıd Muazhem Al naqeeb -- 132030093
 
--2.Yasser Murad
+-2.Yasser Murad -- 132130116
 
 ## 1. Giriş (Login) Kısmı
 Kullanıcılar, sisteme e-posta adresleri ve TC Kimlik ile oturum açabilirler. Giriş ekranında şunlar bulunur:
