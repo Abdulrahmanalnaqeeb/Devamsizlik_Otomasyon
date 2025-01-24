@@ -2,6 +2,10 @@ Yoklama-Devamsizlik Otomasyon Sistemi
 ---
 **Proje Video'su** : https://www.youtube.com/watch?v=FqNPEtAd_pQ
 
+**Proje Üyeleri:**
+1.Abdulrahman Khalıd Muazhem Al naqeeb -- 132030093
+2.Yasser Murad
+
 ## 1. Giriş (Login) Kısmı
 Kullanıcılar, sisteme e-posta adresleri ve TC Kimlik ile oturum açabilirler. Giriş ekranında şunlar bulunur:
 - **E-posta**: Kullanıcının kayıtlı e-posta adresi.
