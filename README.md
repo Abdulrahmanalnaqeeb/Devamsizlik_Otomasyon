@@ -3,6 +3,7 @@ Yoklama-Devamsizlik Otomasyon Sistemi
 **Proje Video'su** : https://www.youtube.com/watch?v=FqNPEtAd_pQ
 
 **Proje Üyeleri:**
+
 -1.Abdulrahman Khalıd Muazhem Al naqeeb -- 132030093
 
 -2.Yasser Murad
