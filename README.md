@@ -1,6 +1,6 @@
 Yoklama-Devamsizlik Otomasyon Sistemi
 ---
-**Proje Video** : https://www.youtube.com/watch?v=FqNPEtAd_pQ
+**Proje Video'su** : https://www.youtube.com/watch?v=FqNPEtAd_pQ
 
 ## 1. Giriş (Login) Kısmı
 Kullanıcılar, sisteme e-posta adresleri ve TC Kimlik ile oturum açabilirler. Giriş ekranında şunlar bulunur:
