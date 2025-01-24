@@ -1,0 +1,48 @@
+@model DevamsizlikTakip.Models.Devamsizlik
+@using DevamsizlikTakip.Models
+
+@{
+    ViewData["Title"] = "Devamsızlık Sil";
+}
+
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        <h2><i class="fas fa-exclamation-triangle"></i> Devamsızlık Silme Onayı</h2>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-circle"></i> 
+            <strong>Dikkat!</strong> Bu devamsızlık kaydını silmek istediğinizden emin misiniz?
+            Bu işlem geri alınamaz.
+        </div>
+
+        <dl class="row">
+            <dt class="col-sm-3">Öğrenci/Çalışan</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-info">@Model.User.KullaniciTipi</span>
+                @Model.User.Ad @Model.User.Soyad
+            </dd>
+
+            <dt class="col-sm-3">Başlangıç Tarihi</dt>
+            <dd class="col-sm-9">@Model.BaslangicTarihi.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Bitiş Tarihi</dt>
+            <dd class="col-sm-9">@Model.BitisTarihi.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Devamsızlık Türü</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-primary">@Model.DevamsizlikTipi</span>
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" method="post" class="mt-4">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Devamsızlık Kaydını Sil
+            </button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> İptal
+            </a>
+        </form>
+    </div>
+</div> 

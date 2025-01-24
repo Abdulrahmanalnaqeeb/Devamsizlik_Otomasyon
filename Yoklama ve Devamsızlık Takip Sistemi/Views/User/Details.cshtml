@@ -1,0 +1,64 @@
+@model DevamsizlikTakip.Models.User
+@using DevamsizlikTakip.Models
+
+@{
+    ViewData["Title"] = "Kullanıcı Detayları";
+}
+
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <h2><i class="fas fa-user"></i> Kullanıcı Detayları</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Ad)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Ad)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Soyad)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Soyad)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TCKimlik)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TCKimlik)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Email)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Telefon)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Telefon)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.KullaniciTipi)</dt>
+                    <dd class="col-sm-8">
+                        <span class="badge bg-info">
+                            @Html.DisplayFor(model => model.KullaniciTipi)
+                        </span>
+                    </dd>
+
+                    @if (Model.KullaniciTipi == UserType.Ogrenci)
+                    {
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Sinif)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Sinif)</dd>
+                    }
+                    else
+                    {
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Departman)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Departman)</dd>
+                    }
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Düzenle
+            </a>
+            <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Sil
+            </a>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Listeye Dön
+            </a>
+        </div>
+    </div>
+</div> 

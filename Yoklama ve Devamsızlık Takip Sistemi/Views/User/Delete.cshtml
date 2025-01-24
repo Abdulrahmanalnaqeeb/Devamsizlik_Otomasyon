@@ -1,0 +1,47 @@
+@model DevamsizlikTakip.Models.User
+@using DevamsizlikTakip.Models
+
+@{
+    ViewData["Title"] = "Kullanıcı Sil";
+}
+
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        <h2><i class="fas fa-exclamation-triangle"></i> Kullanıcı Silme Onayı</h2>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-circle"></i> 
+            <strong>Dikkat!</strong> Bu kullanıcıyı silmek istediğinizden emin misiniz?
+            Bu işlem geri alınamaz.
+        </div>
+
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Ad)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Ad)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Soyad)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Soyad)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.TCKimlik)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.TCKimlik)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.KullaniciTipi)</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-info">
+                    @Html.DisplayFor(model => model.KullaniciTipi)
+                </span>
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" method="post" class="mt-4">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Kullanıcıyı Sil
+            </button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> İptal
+            </a>
+        </form>
+    </div>
+</div> 

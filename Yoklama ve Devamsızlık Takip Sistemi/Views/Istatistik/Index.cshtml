@@ -1,0 +1,168 @@
+@{
+    ViewData["Title"] = "İstatistikler";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2><i class="fas fa-chart-bar"></i> Sistem İstatistikleri</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Kullanıcı Dağılımı -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h4><i class="fas fa-users"></i> Kullanıcı Dağılımı</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Kullanıcı Tipi</th>
+                                    <th>Sayı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.KullaniciSayilari)
+                                {
+                                    <tr>
+                                        <td>@item.Tip</td>
+                                        <td>
+                                            <span class="badge bg-info">@item.Sayi</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devamsızlık Türü Dağılımı -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h4><i class="fas fa-pie-chart"></i> Devamsızlık Türü Dağılımı</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Devamsızlık Türü</th>
+                                    <th>Sayı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.DevamsizlikDagilimi)
+                                {
+                                    <tr>
+                                        <td>@item.Tur</td>
+                                        <td>
+                                            <span class="badge bg-success">@item.Sayi</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Onay Durumu -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning">
+                    <h4><i class="fas fa-check-circle"></i> Onay Durumu</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Durum</th>
+                                    <th>Sayı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.OnayDurumu)
+                                {
+                                    <tr>
+                                        <td>@(item.Onaylandi ? "Onaylandı" : "Beklemede")</td>
+                                        <td>
+                                            <span class="badge @(item.Onaylandi ? "bg-success" : "bg-warning")">
+                                                @item.Sayi
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- En Çok Devamsızlık -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-danger text-white">
+                    <h4><i class="fas fa-exclamation-circle"></i> En Çok Devamsızlık</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Kullanıcı</th>
+                                    <th>Devamsızlık Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.EnCokDevamsizlik)
+                                {
+                                    <tr>
+                                        <td>
+                                            <span class="badge bg-info">@item.Kullanici.KullaniciTipi</span>
+                                            @item.Kullanici.Ad @item.Kullanici.Soyad
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-danger">@item.DevamsizlikSayisi</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Tablolara hover efekti ekle
+            $('.table-hover tbody tr').hover(
+                function() {
+                    $(this).addClass('table-active');
+                },
+                function() {
+                    $(this).removeClass('table-active');
+                }
+            );
+        });
+    </script>
+} 

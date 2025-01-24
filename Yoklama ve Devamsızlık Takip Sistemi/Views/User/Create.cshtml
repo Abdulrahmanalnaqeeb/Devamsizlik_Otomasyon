@@ -1,0 +1,82 @@
+@using DevamsizlikTakip.Models
+@model DevamsizlikTakip.Models.User
+
+@{
+    ViewData["Title"] = "Yeni Kullanıcı";
+}
+
+<h1>Yeni Kullanıcı Ekle</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label"></label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TCKimlik" class="control-label"></label>
+                <input asp-for="TCKimlik" class="form-control" />
+                <span asp-validation-for="TCKimlik" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="KullaniciTipi" class="control-label"></label>
+                <select asp-for="KullaniciTipi" class="form-control">
+                    <option value="">Seçiniz...</option>
+                    <option value="@UserType.Ogrenci">Öğrenci</option>
+                    <option value="@UserType.Calisan">Çalışan</option>
+                    <option value="@UserType.Admin">Yönetici</option>
+                </select>
+                <span asp-validation-for="KullaniciTipi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sinif" class="control-label"></label>
+                <input asp-for="Sinif" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Departman" class="control-label"></label>
+                <input asp-for="Departman" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Form gönderildiğinde submit butonunu devre dışı bırak
+        $('form').on('submit', function () {
+            $(this).find('input[type="submit"]').prop('disabled', true);
+        });
+    </script>
+} 
