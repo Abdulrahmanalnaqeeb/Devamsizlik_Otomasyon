@@ -103,7 +103,7 @@ Yöneticiler, sistemdeki devamsızlıkları ıstatistiksel olarak analiz edebili
 ---
 
 ## 6. Çalışanların Girişi
-Çalışanlar, sisteme **e-posta** ve **T.C. Kimlik No** bilgileri ile giriş yapar (Yönetici çalışan veya öğrenci verdi etki olan girebiliyor). Giriş başarılı olduğunda, kendi profillerine yönlendirilirler.
+Çalışanlar, sisteme **e-posta** ve **T.C. Kimlik No** bilgileri ile giriş yapar (Yönetici, çalışan veya öğrenci'ye verdi etki olan girebiliyor). Giriş başarılı olduğunda, kendi profillerine yönlendirilirler.
 
 **Profilde Yer Alan Bilgiler:**
 - Kendi devamsızlık talepleri.
